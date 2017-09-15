@@ -1,0 +1,26 @@
+{
+  "name": "GraphPOC",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "engines": {
+    "node": ">=8"
+  },
+  "scripts": {
+    "start": "node ./index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "clark sell",
+  "license": "ISC",
+  "dependencies": {
+    "apollo-server-hapi": "^1.1.2",
+    "dotenv": "^4.0.0",
+    "graphql": "^0.11.3",
+    "graphql-tools": "^1.2.2",
+    "hapi": "^16.6.0",
+    "lodash": "^4.17.4",
+    "mongodb": "^2.2.31",
+    "mongoose": "^4.11.11",
+    "winston": "^2.3.1"
+  }
+}
