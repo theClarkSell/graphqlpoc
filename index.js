@@ -2,10 +2,8 @@ require('dotenv').load()
 
 const Hapi                          = require('hapi')
 const { graphqlHapi, graphiqlHapi } = require('apollo-server-hapi')
-
-const {executableSchema} = require('./graphSchema')
-const logger             = require('./utility/logger')
-const mongo              = require('./connectors/mongo')
+const logger                        = require('./utility/logger')
+const mongo                         = require('./connectors/mongo')
 
 const server = new Hapi.Server()
 const port = Number(process.env.PORT || 8000)
@@ -25,9 +23,9 @@ server.register({
     path: paths.graphql,
     graphqlOptions: {
       pretty: true,
-      schema: executableSchema,
+      schema: require('./graphSchema'),
       context: {
-        mongo
+        mongo                           //could pass things in here like user context down to each resolver.
       }
     }
   }

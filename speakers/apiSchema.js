@@ -1,4 +1,3 @@
-
 module.exports = {
   speakerSchema: [`
     input SpeakerInput {
