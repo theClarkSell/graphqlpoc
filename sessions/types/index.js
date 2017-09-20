@@ -1,5 +1,5 @@
 
 module.exports = {
-  session: require('./session'),
-  sessionInput: require('./sessionInput')
+  sessionType: require('./session'),
+  sessionInputType: require('./sessionInput')
 }

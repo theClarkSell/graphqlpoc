@@ -1,9 +1,12 @@
 
-const {GraphQLObjectType, GraphQLString, GraphQLNonNull, GraphQLInputObjectType} = require('graphql')
+const {
+  GraphQLString,
+  GraphQLNonNull,
+  GraphQLInputObjectType} = require('graphql')
 
 module.exports = (resolver) => {
   return new GraphQLInputObjectType({
-    name: 'SpeakerInput',
+    name: 'speakerInputType',
     description: 'A speaker is defined as someone who actually speaks but not to be confused with anyone who can speak.',
     fields: () => ({
       firstName: {

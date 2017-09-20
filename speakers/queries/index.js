@@ -1,5 +1,5 @@
 
-
+// export of queries
 module.exports = {
-  Speakers: require('./speakers')
+  speakers: require('./speakers').speakers
 }

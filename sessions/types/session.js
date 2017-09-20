@@ -9,7 +9,7 @@ const {
 const speakerInput = require('../../speakers/types')
 
 module.exports = new GraphQLObjectType({
-  name: 'Session',
+  name: 'sessionType',
   description: 'A session is defined as a presentaiton that a speaker will give.',
   fields: () => ({
     id: {

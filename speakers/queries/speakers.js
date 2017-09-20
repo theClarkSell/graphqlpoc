@@ -1,13 +1,14 @@
 
-const {GraphQLList} = require('graphql')
+const {GraphQLList}  = require('graphql')
 
-const logger        = require('../../utility/logger')
-const getProjection = require('../../utility/projections')
-const {speaker}     = require('../types')(this)
+const logger         = require('../../utility/logger')
+const getProjection  = require('../../utility/projections')
 
-//default export
+const fieldResolvers = require('./fieldResolvers')
+const {speakerType}  = require('../types')(fieldResolvers)
+
 const speakers = {
-  type: new GraphQLList(speaker), //how is this an array?
+  type: new GraphQLList(speakerType), //how is this an array?
   description: 'The speakers query will return you a list of all speakers blaa blaa blaa.',
   //deprecationReason: 'reason here', // this is valid on an operation as well
   args: {},
@@ -24,26 +25,6 @@ const speakers = {
   }
 }
 
-//field resolvers
-
-const sessionResolver = ({_id}, args, {mongo: {Sessions}}, fieldASTs) => {
-  const projection = getProjection(fieldASTs)
-  return new Promise((resolve, reject) => {
-    Sessions
-      .find({speakers: {$in: [_id]} })
-      .select(projection)
-      .exec()
-      .then(r => resolve(r))
-      .catch(err => reject(err))
-  })
-}
-
-const firstName = (root) => root.firstName
-const id = (root) => root._id || root.id
-
-module.exports = speakers
-exports.fieldResolvers = {
-  id: id,
-  firstName: firstName,
-  sessions: sessionResolver
+module.exports = {
+  speakers
 }
