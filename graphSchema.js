@@ -7,19 +7,15 @@ const {
   GraphQLObjectType,
 } = require('graphql')
 
-// const {speakerType, speakerInputType} = require('./speakers/types')
-
 const queries = _.merge(
   require('./speakers/queries'),
   require('./sessions/queries')
 )
-console.log(queries)
 
 const mutations = _.merge(
   require('./speakers/mutations'),
   // require('./sessions/mutations')
 )
-console.log(mutations)
 
 module.exports = new GraphQLSchema({
 

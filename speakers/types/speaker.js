@@ -10,7 +10,7 @@ const {sessionType} = require('../../sessions/types')
 
 module.exports = (resolver) => {
   return new GraphQLObjectType({
-    name: 'speakerType',
+    name: 'speaker',
     description: 'A speaker is defined as someone who actually speaks but not to be confused with anyone who can speak.',
     fields: () => ({
       id: {

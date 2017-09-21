@@ -6,11 +6,11 @@ const {
 
 module.exports = (resolver) => {
   return new GraphQLInputObjectType({
-    name: 'speakerInputType',
+    name: 'speakerInput',
     description: 'A speaker is defined as someone who actually speaks but not to be confused with anyone who can speak.',
     fields: () => ({
       firstName: {
-        type: new GraphQLNonNull(GraphQLString),
+          type: new GraphQLNonNull(GraphQLString),
         description: 'Speakers First Name'
       },
       lastName: {
