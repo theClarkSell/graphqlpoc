@@ -3,8 +3,8 @@ const {GraphQLList} = require('graphql')
 const logger        = require('../../utility/logger')
 const getProjection = require('../../utility/projections')
 
-const {sessionType} = require('../types')
-const {Sessions}    = require('../../connectors/mongo')
+const {sessionType} = require('../../types')
+const {Sessions}    = require('../../db/mongo')
 
 
 module.exports = {

@@ -1,11 +1,11 @@
 const {
-  GraphQLObjectType,
+  GraphQLInputObjectType,
   GraphQLString,
   GraphQLNonNull,
   GraphQLList
 } = require('graphql')
 
-module.exports = new GraphQLObjectType({
+module.exports = new GraphQLInputObjectType({
   name: 'sessionInputType',
   description: 'A session is defined as a presentaiton that a speaker will give.',
   fields: () => ({

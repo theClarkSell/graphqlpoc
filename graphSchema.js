@@ -9,12 +9,14 @@ const {
 
 const queries = _.merge(
   require('./speakers/queries'),
-  require('./sessions/queries')
+  require('./sessions/queries'),
+  require('./events/queries')
 )
 
 const mutations = _.merge(
   require('./speakers/mutations'),
-  // require('./sessions/mutations')
+  require('./sessions/mutations'),
+  require('./events/mutations')
 )
 
 module.exports = new GraphQLSchema({

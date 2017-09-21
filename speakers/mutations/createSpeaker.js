@@ -5,7 +5,7 @@ const {
   GraphQLString,
   GraphQLObjectType } = require('graphql')
 
-const {speakerInput} = require('../types')
+const {speakerInputType} = require('../../types')
 
 module.exports = {
   type: GraphQLString,
@@ -14,7 +14,7 @@ module.exports = {
   args: {
     newSpeaker: {
       name: 'newSpeaker',
-      type: new GraphQLNonNull(speakerInput)
+      type: new GraphQLNonNull(speakerInputType)
     }
   },
   resolve: (root, {newSpeaker}, {mongo: {Speakers}}) => {

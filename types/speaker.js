@@ -1,4 +1,3 @@
-
 const {
   GraphQLObjectType,
   GraphQLString,
@@ -6,22 +5,22 @@ const {
   GraphQLNonNull,
   GraphQLList } = require('graphql')
 
-const resolver = require('../resolvers/fields')
-const {sessionType} = require('../../sessions/types')
+const {sessions, firstName} = require('../resolvers/speaker')
+const {id} = require('../resolvers/id')
 
 module.exports = new GraphQLObjectType({
-  name: 'speaker',
+  name: 'speakerType',
   description: 'A speaker is defined as someone who actually speaks but not to be confused with anyone who can speak.',
   fields: () => ({
     id: {
       type: new GraphQLNonNull(GraphQLID),
       description: 'System generated unique id for this speaker.',
-      resolve: (...args) => resolver.id(...args)
+      resolve: (...args) => id(...args)
     },
     firstName: {
       type: new GraphQLNonNull(GraphQLString),
       description: 'Speakers First Name',
-      resolve: (...args) => resolver.firstName(...args)
+      resolve: (...args) => firstName(...args)
     },
     lastName: {
       type: new GraphQLNonNull(GraphQLString),
@@ -32,9 +31,9 @@ module.exports = new GraphQLObjectType({
       description: 'Speakers Email Address'
     },
     sessions: {
-      type: new GraphQLList(sessionType),
+      type: new GraphQLList(require('./session')), // TODO:: runtime require here as  it's a circular reference
       description: 'sessions....',
-      resolve: (...args) => resolver.sessions(...args)
+      resolve: (...args) => sessions(...args)
     },
     company: {
       deprecationReason: 'We really do not care where you work we care what you do',

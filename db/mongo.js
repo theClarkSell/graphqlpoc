@@ -1,9 +1,10 @@
 const mongoose = require('mongoose')
 const logger   = require('../utility/logger')
 
-const Event    = require('../events/dbModel')
-const Session  = require('../sessions/dbModel')
-const Speaker  = require('../speakers/dbModel')
+const {
+  event,
+  speaker,
+  session } = require('./models')
 
 const user = process.env.MONGO_USERNAME
 const password = process.env.MONGO_PASSWORD
@@ -25,7 +26,7 @@ db.on('close', () => {
 })
 
 module.exports = {
-    Events: Event,
-    Sessions: Session,
-    Speakers: Speaker
+    Events: event,
+    Sessions: session,
+    Speakers: speaker
 }

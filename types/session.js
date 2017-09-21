@@ -3,10 +3,10 @@ const {
   GraphQLString,
   GraphQLID,
   GraphQLNonNull,
-  GraphQLList
-} = require('graphql')
+  GraphQLList } = require('graphql')
 
-//const speakerInput = require('../../speakers/types')
+const {speakers, firstName} = require('../resolvers/session')
+const {id} = require('../resolvers/id')
 
 module.exports = new GraphQLObjectType({
   name: 'sessionType',
@@ -14,7 +14,8 @@ module.exports = new GraphQLObjectType({
   fields: () => ({
     id: {
       type: new GraphQLNonNull(GraphQLID),
-      description: 'System generated unique id for this session.'
+      description: 'System generated unique id for this session.',
+      resolve: (...args) => id(...args)
     },
     title: {
       type: new GraphQLNonNull(GraphQLString),
@@ -24,9 +25,10 @@ module.exports = new GraphQLObjectType({
       type: new GraphQLNonNull(GraphQLString),
       description: 'Brief overview detatailing what this session will be about.'
     },
-    // speakers: {
-    //   type: new GraphQLList(speaker),
-    //   description: 'speakers on the sessions'
-    // }
+    speakers: {
+      type: new GraphQLList(require('./speaker')), //TODO:: runtime require due to circular reference
+      description: 'speakers on the sessions',
+      resolve: (...args) => speakers(...args)
+    }
   })
 })

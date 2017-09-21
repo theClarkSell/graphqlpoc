@@ -1,7 +1,6 @@
+const getProjection = require('../utility/projections')
 
-//field resolvers for types
-const getProjection = require('../../utility/projections')
-
+//speaker id is being passed in
 const sessions = ({_id}, args, {mongo: {Sessions}}, fieldASTs) => {
   const projection = getProjection(fieldASTs)
   return new Promise((resolve, reject) => {
@@ -14,11 +13,10 @@ const sessions = ({_id}, args, {mongo: {Sessions}}, fieldASTs) => {
   })
 }
 
+//just a contrived example since there is no real field mapping
 const firstName = (root) => root.firstName
-const id = (root) => root._id || root.id
 
 module.exports = {
-  id,
   firstName,
   sessions
 }

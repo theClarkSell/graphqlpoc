@@ -3,7 +3,7 @@ require('dotenv').load()
 const Hapi                          = require('hapi')
 const { graphqlHapi, graphiqlHapi } = require('apollo-server-hapi')
 const logger                        = require('./utility/logger')
-const mongo                         = require('./connectors/mongo')
+const mongo                         = require('./db/mongo')
 
 const server = new Hapi.Server()
 const port = Number(process.env.PORT || 8000)

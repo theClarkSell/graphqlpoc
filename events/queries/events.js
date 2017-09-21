@@ -1,22 +1,18 @@
-
-const {
-  GraphQLList,
-  GraphQLString }  = require('graphql')
-
+const {GraphQLList} = require('graphql')
 const logger        = require('../../utility/logger')
 const getProjection = require('../../utility/projections')
-const {speakerType} = require('../../types')
+const {eventType}   = require('../../types')
 
 module.exports = {
-  type: new GraphQLList(speakerType), //how is this an array?
-  description: 'The speakers query will return you a list of all speakers blaa blaa blaa.',
+  type: new GraphQLList(eventType), //how is this an array?
+  description: 'Returns the list of events',
   //deprecationReason: 'reason here', // this is valid on an operation as well
   args: {},
-  resolve: (root, args, {mongo: {Speakers}}, fieldASTs) => {
+  resolve: (root, args, {mongo: {Events}}, fieldASTs) => {
     return new Promise((resolve, reject) => {
-      logger.debug(`in speakers query`)
+      logger.debug(`in events query`)
       const projection = getProjection(fieldASTs)
-      Speakers.find({})
+      Events.find({})
         .select(projection)
         .exec()
         .then(data => resolve(data))
