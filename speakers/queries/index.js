@@ -1,5 +1,8 @@
 
-// export of queries
+const speakers = require('./speakers')
+const findSpeaker = require('./findSpeaker')
+
 module.exports = {
-  allSpeakers: require('./speakers').allSpeakers
+  speakers,
+  findSpeaker
 }

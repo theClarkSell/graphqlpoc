@@ -6,7 +6,7 @@ const {
   GraphQLList
 } = require('graphql')
 
-const speakerInput = require('../../speakers/types')
+//const speakerInput = require('../../speakers/types')
 
 module.exports = new GraphQLObjectType({
   name: 'sessionType',

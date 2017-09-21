@@ -1,7 +1,8 @@
 
-module.exports = (resolver) => {
-  const speaker      = require('./speaker')(resolver)
-  const speakerInput = require('./speakerInput')(resolver)
+const speaker      = require('./speaker')
+const speakerInput = require('./speakerInput')
 
-  return { speaker, speakerInput }
+module.exports = {
+  speaker,
+  speakerInput
 }

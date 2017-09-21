@@ -7,11 +7,17 @@ const logger        = require('../../utility/logger')
 const getProjection = require('../../utility/projections')
 const {speaker}       = require('../types')
 
+//todo.. placeholder to make sure we can reuse a type... resolve is wrong.
 module.exports = {
   type: new GraphQLList(speaker), //how is this an array?
   description: 'The speakers query will return you a list of all speakers blaa blaa blaa.',
   //deprecationReason: 'reason here', // this is valid on an operation as well
-  args: {},
+  args: {
+    userID: {
+      name: 'userID',
+      type: GraphQLString
+    }
+  },
   resolve: (root, args, {mongo: {Speakers}}, fieldASTs) => {
     return new Promise((resolve, reject) => {
       logger.debug(`in speakers query`)

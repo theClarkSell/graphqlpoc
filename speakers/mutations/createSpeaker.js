@@ -1,9 +1,11 @@
-
-const {GraphQLNonNull, GraphQLString, GraphQLObjectType} = require('graphql')
 const logger = require('../../utility/logger')
 
-const fieldResolvers = require('../queries/fieldResolvers')
-const {speaker, speakerInput} = require('../types')(fieldResolvers)
+const {
+  GraphQLNonNull,
+  GraphQLString,
+  GraphQLObjectType } = require('graphql')
+
+const {speakerInput} = require('../types')
 
 module.exports = {
   type: GraphQLString,
