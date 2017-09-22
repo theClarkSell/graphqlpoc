@@ -11,7 +11,7 @@ const {session} = require('../resolvers/session')
 const {id} = require('../resolvers/id')
 
 module.exports = new GraphQLObjectType({
-  name: 'eventType',
+  name: 'EventType',
   description: 'A gathering of awesome that takes place on some regular interval',
   fields: () => ({
     id: {

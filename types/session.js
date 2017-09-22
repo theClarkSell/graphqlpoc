@@ -9,7 +9,7 @@ const {speaker} = require('../resolvers/speaker')
 const {id} = require('../resolvers/id')
 
 module.exports = new GraphQLObjectType({
-  name: 'sessionType',
+  name: 'SessionType',
   description: 'A session is defined as a presentaiton that a speaker will give.',
   fields: () => ({
     id: {

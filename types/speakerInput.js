@@ -5,7 +5,7 @@ const {
   GraphQLInputObjectType} = require('graphql')
 
 module.exports = new GraphQLInputObjectType({
-  name: 'speakerInput',
+  name: 'SpeakerInputType',
   description: 'A speaker is defined as someone who actually speaks but not to be confused with anyone who can speak.',
   fields: () => ({
     firstName: {
