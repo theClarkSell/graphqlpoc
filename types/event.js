@@ -6,7 +6,8 @@ const {
   GraphQLNonNull,
   GraphQLList } = require('graphql')
 
-const {speakers, sessions} = require('../resolvers/event')
+const {speaker} = require('../resolvers/speaker')
+const {session} = require('../resolvers/session')
 const {id} = require('../resolvers/id')
 
 module.exports = new GraphQLObjectType({
@@ -33,12 +34,12 @@ module.exports = new GraphQLObjectType({
     speakers: {
       type: new GraphQLList(require('./speaker')), //TODO:: runtime require due to circular reference
       description: 'Speakers for this event.',
-      resolve: (...args) => speakers(...args)
+      resolve: (...args) => speaker(...args)
     },
     sessions: {
       type: new GraphQLList(require('./session')), //TODO:: runtime require due to circular reference
       description: 'Sessions for this event.',
-      resolve: (...args) => sessions(...args)
+      resolve: (...args) => session(...args)
     }
   })
 })

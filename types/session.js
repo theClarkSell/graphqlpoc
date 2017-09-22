@@ -5,7 +5,7 @@ const {
   GraphQLNonNull,
   GraphQLList } = require('graphql')
 
-const {speakers, firstName} = require('../resolvers/session')
+const {speaker} = require('../resolvers/speaker')
 const {id} = require('../resolvers/id')
 
 module.exports = new GraphQLObjectType({
@@ -28,7 +28,7 @@ module.exports = new GraphQLObjectType({
     speakers: {
       type: new GraphQLList(require('./speaker')), //TODO:: runtime require due to circular reference
       description: 'speakers on the sessions',
-      resolve: (...args) => speakers(...args)
+      resolve: (...args) => speaker(...args)
     }
   })
 })

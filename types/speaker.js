@@ -5,8 +5,9 @@ const {
   GraphQLNonNull,
   GraphQLList } = require('graphql')
 
-const {sessions, firstName} = require('../resolvers/speaker')
-const {id} = require('../resolvers/id')
+const {session}   = require('../resolvers/session')
+const {firstName} = require('../resolvers/speaker')
+const {id}        = require('../resolvers/id')
 
 module.exports = new GraphQLObjectType({
   name: 'speakerType',
@@ -33,7 +34,7 @@ module.exports = new GraphQLObjectType({
     sessions: {
       type: new GraphQLList(require('./session')), // TODO:: runtime require here as  it's a circular reference
       description: 'sessions....',
-      resolve: (...args) => sessions(...args)
+      resolve: (...args) => session(...args)
     },
     company: {
       deprecationReason: 'We really do not care where you work we care what you do',
