@@ -1,47 +1,41 @@
 
-const logger                   = require('./utility/logger')
-const _                        = require('lodash')
-const { makeExecutableSchema } = require('graphql-tools')
+const logger = require('./utility/logger')
+const _      = require('lodash')
 
-// graphql implementations
-const eventResolvers   = require('./events/apiResolvers')
-const sessionResolvers = require('./sessions/apiResolvers')
-const speakerResolvers = require('./speakers/apiResolvers')
+const {
+  GraphQLSchema,
+  GraphQLObjectType,
+} = require('graphql')
 
-const {eventSchema}    = require('./events/apiSchema')
-const {sessionSchema}  = require('./sessions/apiSchema')
-const {speakerSchema}  = require('./speakers/apiSchema')
+const queries = _.merge(
+  require('./speakers/queries'),
+  require('./sessions/queries'),
+  require('./events/queries')
+)
 
-const rootSchema = [`
-  type Queries {
-    events: [Event]
-    sessions: [Session]
-    speakers: [Speaker]
-  }
+const mutations = _.merge(
+  require('./speakers/mutations'),
+  require('./sessions/mutations'),
+  require('./events/mutations')
+)
 
-  type Mutations {
-    createSpeaker(newSpeaker: SpeakerInput!): Speaker
-    createSession(newSession: SessionInput!): Session
-  }
+module.exports = new GraphQLSchema({
 
-  type Subscription {
-    newSession: Session!
-  }
+  query: new GraphQLObjectType({
+    name: 'Query',
+    fields: queries
+  }),
 
-  schema {
-    query: Queries
-    mutation: Mutations
-    subscription: Subscription
-  }
-`]
-
-const typeDefs = [...eventSchema, ...sessionSchema, ...speakerSchema, ...rootSchema]
-//logger.data(typeDefs)
-
-const resolvers = _.merge(eventResolvers, sessionResolvers, speakerResolvers)
-
-exports.executableSchema = makeExecutableSchema({
-  typeDefs,
-  resolvers
+  mutation: new GraphQLObjectType({
+    name: 'Mutation',
+    fields: mutations
+  })
+  // directive: new GraphQLObjectType({
+  //   name: 'Directive',
+  //   fields: directives
+  // }),
+  // subscription: new GraphQLObjectType({
+  //   name: 'Subscription',
+  //   fields: subscriptions
+  // })
 })
-  

@@ -1,5 +1,5 @@
 {
-  "name": "GraphPOC",
+  "name": "graphpoc",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -7,7 +7,8 @@
     "node": ">=8"
   },
   "scripts": {
-    "start": "node ./index.js",
+    "start": "nodemon ./index.js",
+    "debug": "nodemon --inspect --debug-brk=9229 ./index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "clark sell",
@@ -22,5 +23,8 @@
     "mongodb": "^2.2.31",
     "mongoose": "^4.11.11",
     "winston": "^2.3.1"
+  },
+  "devDependencies": {
+    "nodemon": "^1.12.1"
   }
 }
