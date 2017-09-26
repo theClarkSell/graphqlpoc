@@ -14,6 +14,7 @@
   "author": "clark sell",
   "license": "ISC",
   "dependencies": {
+    "@types/hapi": "^16.1.9",
     "apollo-server-hapi": "^1.1.2",
     "dotenv": "^4.0.0",
     "graphql": "^0.11.3",

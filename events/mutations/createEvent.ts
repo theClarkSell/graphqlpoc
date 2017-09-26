@@ -1,5 +1,5 @@
 
-const logger = require('../../utility/logger')
+import * as logger from '../../utility/logger'
 
 const {
   GraphQLNonNull,

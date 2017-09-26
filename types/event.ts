@@ -1,16 +1,16 @@
 
-const {
+import {
   GraphQLObjectType,
   GraphQLString,
   GraphQLID,
   GraphQLNonNull,
-  GraphQLList } = require('graphql')
+  GraphQLList } from 'graphql'
 
-const {speaker} = require('../resolvers/speaker')
-const {session} = require('../resolvers/session')
-const {id} = require('../resolvers/id')
+import {speaker} from '../resolvers/speaker'
+import {session} from '../resolvers/session'
+import {id} from '../resolvers/id'
 
-module.exports = new GraphQLObjectType({
+export default new GraphQLObjectType({
   name: 'EventType',
   description: 'A gathering of awesome that takes place on some regular interval',
   fields: () => ({

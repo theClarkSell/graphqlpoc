@@ -1,4 +1,4 @@
-const getProjection = require('../utility/projections')
+import * as getProjection from '../utility/projections'
 
 const speaker = ({speakers}, args, {mongo: {Speakers}}, fieldASTs) => {
   const projection = getProjection(fieldASTs)
@@ -15,7 +15,7 @@ const speaker = ({speakers}, args, {mongo: {Speakers}}, fieldASTs) => {
 //just a contrived example since there is no real field mapping
 const firstName = (root) => root.firstName
 
-module.exports = {
+export = {
   firstName,
   speaker
 }

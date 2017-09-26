@@ -1,9 +1,9 @@
 require('dotenv').load()
 
-const Hapi                          = require('hapi')
-const { graphqlHapi, graphiqlHapi } = require('apollo-server-hapi')
-const logger                        = require('./utility/logger')
-const mongo                         = require('./db/mongo')
+import * as Hapi from 'hapi'
+import { graphqlHapi, graphiqlHapi } from 'apollo-server-hapi'
+import * as logger                        from './utility/logger'
+import * as mongo                         from './db/mongo'
 
 const server = new Hapi.Server()
 const port = Number(process.env.PORT || 8000)

@@ -1,4 +1,4 @@
-const getProjection = require('../utility/projections')
+import * as getProjection from '../utility/projections'
 
 const session = ({_id, sessions}, args, {mongo: {Sessions}}, fieldASTs) => {
   const projection = getProjection(fieldASTs)
@@ -12,6 +12,6 @@ const session = ({_id, sessions}, args, {mongo: {Sessions}}, fieldASTs) => {
   })
 }
 
-module.exports = {
+export = {
   session
 }

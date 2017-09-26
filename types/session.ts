@@ -1,14 +1,14 @@
-const {
+import {
   GraphQLObjectType,
   GraphQLString,
   GraphQLID,
   GraphQLNonNull,
-  GraphQLList } = require('graphql')
+  GraphQLList } from 'graphql'
 
-const {speaker} = require('../resolvers/speaker')
-const {id} = require('../resolvers/id')
+import {speaker} from '../resolvers/speaker'
+import {id} from '../resolvers/id'
 
-module.exports = new GraphQLObjectType({
+export default new GraphQLObjectType({
   name: 'SessionType',
   description: 'A session is defined as a presentaiton that a speaker will give.',
   fields: () => ({

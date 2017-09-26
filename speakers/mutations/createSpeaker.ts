@@ -1,13 +1,13 @@
-const logger = require('../../utility/logger')
+import * as logger from '../../utility/logger'
 
-const {
+import {
   GraphQLNonNull,
   GraphQLString,
-  GraphQLObjectType } = require('graphql')
+  GraphQLObjectType } from 'graphql'
 
-const {speakerInputType} = require('../../types')
+import {speakerInputType} from '../../types'
 
-module.exports = {
+export = {
   type: GraphQLString,
   description: 'Create a new speaker',
   //deprecationReason: 'reason here', // this is valid on an operation as well

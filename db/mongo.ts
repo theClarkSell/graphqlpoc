@@ -1,5 +1,5 @@
-const mongoose = require('mongoose')
-const logger   = require('../utility/logger')
+import * as mongoose from 'mongoose'
+import * as logger   from '../utility/logger'
 
 const {
   event,

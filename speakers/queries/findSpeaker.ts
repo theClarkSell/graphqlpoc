@@ -1,14 +1,14 @@
 
-const {
+import {
   GraphQLList,
-  GraphQLString }  = require('graphql')
+  GraphQLString }  from 'graphql'
 
-const logger        = require('../../utility/logger')
-const getProjection = require('../../utility/projections')
-const {speakerType} = require('../../types')
+import * as logger        from '../../utility/logger'
+import * as getProjection from '../../utility/projections'
+import {speakerType} from '../../types'
 
 //todo.. placeholder to make sure we can reuse a type... resolve is wrong.
-module.exports = {
+export = {
   type: new GraphQLList(speakerType), //how is this an array?
   description: 'The speakers query will return you a list of all speakers blaa blaa blaa.',
   //deprecationReason: 'reason here', // this is valid on an operation as well

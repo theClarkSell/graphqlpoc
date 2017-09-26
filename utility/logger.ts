@@ -1,4 +1,4 @@
-const Winston = require('winston')
+import * as Winston from 'winston'
 
 let logger = new (Winston.Logger)({
   levels: {
@@ -35,4 +35,4 @@ logger.add(Winston.transports.Console, {
   timestamp: true
 })
 
-module.exports = logger
+export = logger

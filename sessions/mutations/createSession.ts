@@ -1,4 +1,4 @@
-const logger = require('../../utility/logger')
+import * as logger  from '../../utility/logger'
 
 const {
   GraphQLNonNull,
@@ -6,7 +6,7 @@ const {
 
 const {sessionInputType} = require('../../types')
 
-module.exports = {
+export = {
   type: GraphQLString,
   description: 'Create a new session',
   //deprecationReason: 'reason here', // this is valid on an operation as well

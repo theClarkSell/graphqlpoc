@@ -1,13 +1,13 @@
-const {GraphQLList} = require('graphql')
+import  {GraphQLList} from 'graphql'
 
-const logger        = require('../../utility/logger')
-const getProjection = require('../../utility/projections')
+import * as logger        from '../../utility/logger'
+import * as  getProjection from '../../utility/projections'
 
-const {sessionType} = require('../../types')
-const {Sessions}    = require('../../db/mongo')
+import  {sessionType} from '../../types'
+import  {Sessions}    from '../../db/mongo'
 
 
-module.exports = {
+export = {
   type: new GraphQLList(sessionType), //how is this an array?
   description: 'The sessions query will return you a list of all accepted sessions blaa blaa blaa.',
   //deprecationReason: 'reason here', // this is valid on an operation as well
