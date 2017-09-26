@@ -1,9 +1,12 @@
-require('dotenv').load()
+import * as dotenv from 'dotenv'
+dotenv.load()
 
 import * as Hapi from 'hapi'
 import { graphqlHapi, graphiqlHapi } from 'apollo-server-hapi'
-import * as logger                        from './utility/logger'
-import * as mongo                         from './db/mongo'
+import * as logger from './utility/logger'
+import * as mongo from './db/mongo'
+import graphSchema from './graphSchema'
+import routes from './routes'
 
 const server = new Hapi.Server()
 const port = Number(process.env.PORT || 8000)
@@ -23,7 +26,7 @@ server.register({
     path: paths.graphql,
     graphqlOptions: {
       pretty: true,
-      schema: require('./graphSchema'),
+      schema: graphSchema,
       context: {
         mongo                           //could pass things in here like user context down to each resolver.
       }
@@ -41,7 +44,7 @@ server.register({
   }
 })
 
-server.route(require('./routes')())
+server.route(<any>routes)
 
 exports.listen = () => {
   server.start((err) => {

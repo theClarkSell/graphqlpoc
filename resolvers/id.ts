@@ -1,6 +1,2 @@
 
-const id = (root) => root._id || root.id
-
-export = {
-  id
-}
+export default (root) => root._id || root.id

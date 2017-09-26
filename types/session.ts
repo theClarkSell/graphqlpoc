@@ -5,8 +5,10 @@ import {
   GraphQLNonNull,
   GraphQLList } from 'graphql'
 
-import {speaker} from '../resolvers/speaker'
-import {id} from '../resolvers/id'
+import speaker from '../resolvers/speaker'
+import id from '../resolvers/id'
+
+import speakerType from './speaker'
 
 export default new GraphQLObjectType({
   name: 'SessionType',
@@ -26,7 +28,7 @@ export default new GraphQLObjectType({
       description: 'Brief overview detatailing what this session will be about.'
     },
     speakers: {
-      type: new GraphQLList(require('./speaker')), //TODO:: runtime require due to circular reference
+      type: new GraphQLList(speakerType), //TODO:: runtime require due to circular reference
       description: 'speakers on the sessions',
       resolve: (...args) => speaker(...args)
     }

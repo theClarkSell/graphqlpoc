@@ -1,4 +1,2 @@
 
-module.exports = {
-  events: require('./events')
-}
+export * from './events'

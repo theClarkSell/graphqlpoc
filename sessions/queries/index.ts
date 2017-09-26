@@ -1,4 +1,2 @@
 
-export = {
-  sessions: require('./sessions')
-}
+export * from './sessions'

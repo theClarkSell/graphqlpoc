@@ -1,6 +1,4 @@
 
-module.exports = {
-  event: require('./event'),
-  speaker: require('./speaker'),
-  session: require('./session')
-}
+export * from './event'
+export * from './speaker'
+export * from './session'

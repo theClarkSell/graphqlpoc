@@ -1,9 +1,9 @@
 import {GraphQLList} from 'graphql'
 import * as logger        from '../../utility/logger'
-import * as getProjection from '../../utility/projections'
-import {eventType}   from '../../types'
+import getProjection from '../../utility/projections'
+import {eventType} from '../../types'
 
-module.exports = {
+export const events = {
   type: new GraphQLList(eventType), //how is this an array?
   description: 'Returns the list of events',
   //deprecationReason: 'reason here', // this is valid on an operation as well

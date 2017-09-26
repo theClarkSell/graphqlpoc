@@ -6,9 +6,12 @@ import {
   GraphQLNonNull,
   GraphQLList } from 'graphql'
 
-import {speaker} from '../resolvers/speaker'
-import {session} from '../resolvers/session'
-import {id} from '../resolvers/id'
+import speaker from '../resolvers/speaker'
+import session from '../resolvers/session'
+import id from '../resolvers/id'
+
+import speakerType from './speaker'
+import sessionType from './session'
 
 export default new GraphQLObjectType({
   name: 'EventType',
@@ -32,12 +35,12 @@ export default new GraphQLObjectType({
       description: 'The year this event takes place'
     },
     speakers: {
-      type: new GraphQLList(require('./speaker')), //TODO:: runtime require due to circular reference
+      type: new GraphQLList(speakerType), //TODO:: runtime require due to circular reference
       description: 'Speakers for this event.',
       resolve: (...args) => speaker(...args)
     },
     sessions: {
-      type: new GraphQLList(require('./session')), //TODO:: runtime require due to circular reference
+      type: new GraphQLList(sessionType), //TODO:: runtime require due to circular reference
       description: 'Sessions for this event.',
       resolve: (...args) => session(...args)
     }

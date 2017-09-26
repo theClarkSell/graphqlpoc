@@ -19,7 +19,7 @@ const mutations = _.merge(
   require('./events/mutations')
 )
 
-module.exports = new GraphQLSchema({
+export default new GraphQLSchema({
 
   query: new GraphQLObjectType({
     name: 'Query',

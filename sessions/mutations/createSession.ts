@@ -6,7 +6,7 @@ const {
 
 const {sessionInputType} = require('../../types')
 
-export = {
+export const createSession = {
   type: GraphQLString,
   description: 'Create a new session',
   //deprecationReason: 'reason here', // this is valid on an operation as well

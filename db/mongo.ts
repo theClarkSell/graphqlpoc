@@ -1,10 +1,10 @@
 import * as mongoose from 'mongoose'
 import * as logger   from '../utility/logger'
 
-const {
+import {
   event,
   speaker,
-  session } = require('./models')
+  session } from './models'
 
 const user = process.env.MONGO_USERNAME
 const password = process.env.MONGO_PASSWORD
@@ -25,8 +25,12 @@ db.on('close', () => {
   process.exit(0)
 })
 
-module.exports = {
-    Events: event,
-    Sessions: session,
-    Speakers: speaker
-}
+export {event as Events}
+export {session as Sessions}
+export {speaker as Speakers}
+
+// export = {
+//     Events: event,
+//     Sessions: session,
+//     Speakers: speaker
+// }

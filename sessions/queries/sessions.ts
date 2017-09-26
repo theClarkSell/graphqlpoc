@@ -1,13 +1,13 @@
 import  {GraphQLList} from 'graphql'
 
 import * as logger        from '../../utility/logger'
-import * as  getProjection from '../../utility/projections'
+import getProjection from '../../utility/projections'
 
 import  {sessionType} from '../../types'
 import  {Sessions}    from '../../db/mongo'
 
 
-export = {
+export const sessions = {
   type: new GraphQLList(sessionType), //how is this an array?
   description: 'The sessions query will return you a list of all accepted sessions blaa blaa blaa.',
   //deprecationReason: 'reason here', // this is valid on an operation as well

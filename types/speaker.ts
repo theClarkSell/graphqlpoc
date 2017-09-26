@@ -5,9 +5,11 @@ import {
   GraphQLNonNull,
   GraphQLList } from 'graphql'
   
-import {session}  from  '../resolvers/session'
+import session from  '../resolvers/session'
 import {firstName} from '../resolvers/speaker'
-import {id}        from '../resolvers/id'
+import id from '../resolvers/id'
+
+import sessionType from './session'
 
 export default new GraphQLObjectType({
   name: 'SpeakerType',
@@ -32,7 +34,7 @@ export default new GraphQLObjectType({
       description: 'Speakers Email Address'
     },
     sessions: {
-      type: new GraphQLList(require('./session')), // TODO:: runtime require here as  it's a circular reference
+      type: new GraphQLList(sessionType), // TODO:: runtime require here as  it's a circular reference
       description: 'sessions....',
       resolve: (...args) => session(...args)
     },

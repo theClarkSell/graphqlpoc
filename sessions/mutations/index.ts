@@ -1,4 +1,2 @@
 
-export = {
-  createSession: require('./createSession')
-}
+export * from './createSession'

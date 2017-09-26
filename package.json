@@ -7,25 +7,25 @@
     "node": ">=8"
   },
   "scripts": {
-    "start": "nodemon ./index.js",
-    "debug": "nodemon --inspect --debug-brk=9229 ./index.js",
+    "start": "nodemon ./built/index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "clark sell",
   "license": "ISC",
   "dependencies": {
-    "@types/hapi": "^16.1.9",
     "apollo-server-hapi": "^1.1.2",
     "dotenv": "^4.0.0",
-    "graphql": "^0.11.3",
-    "graphql-tools": "^1.2.2",
-    "hapi": "^16.6.0",
+    "graphql": "^0.11.4",
+    "graphql-tools": "^1.2.3",
+    "hapi": "^16.6.2",
     "lodash": "^4.17.4",
     "mongodb": "^2.2.31",
-    "mongoose": "^4.11.11",
+    "mongoose": "^4.11.13",
     "winston": "^2.3.1"
   },
   "devDependencies": {
+    "@types/node": "^8.0.31",
+    "@types/hapi": "^16.1.9",
     "nodemon": "^1.12.1"
   }
 }

@@ -7,7 +7,7 @@ const {
 
 const {eventInputType} = require('../../types')
 
-module.exports = {
+export const createEvent = {
   type: GraphQLString,
   description: 'Create a new session',
   //deprecationReason: 'reason here', // this is valid on an operation as well

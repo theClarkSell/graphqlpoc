@@ -1,4 +1,5 @@
 import * as mongoose from 'mongoose'
+
 const Schema   = mongoose.Schema
 
 const speakerSchema = new Schema({
@@ -34,4 +35,4 @@ const speakerSchema = new Schema({
 
 })
 
-module.exports = mongoose.model('Speaker', speakerSchema)
+export const speaker = mongoose.model('Speaker', speakerSchema)

@@ -7,7 +7,7 @@ import {
 
 import {speakerInputType} from '../../types'
 
-export = {
+export const createSpeaker = {
   type: GraphQLString,
   description: 'Create a new speaker',
   //deprecationReason: 'reason here', // this is valid on an operation as well

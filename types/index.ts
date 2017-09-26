@@ -1,16 +1,7 @@
 
-import * as speakerType      from './speaker.js'
-import * as speakerInputType from './speakerInput.js'
-import * as sessionType      from './session.js'
-import * as sessionInputType from './sessionInput.js'
-import * as eventType        from './event.js'
-import * as eventInputType   from './eventInput.js'
-
-export = {
-  speakerType,
-  speakerInputType,
-  sessionType,
-  sessionInputType,
-  eventType,
-  eventInputType
-}
+export {default as speakerType}       from './speaker.js'
+export {default as speakerInputType}  from './speakerInput.js'
+export {default as sessionType}       from './session.js'
+export {default as sessionInputType}  from './sessionInput.js'
+export {default as eventType}         from './event.js'
+export {default as eventInputType}    from './eventInput.js'

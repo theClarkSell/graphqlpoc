@@ -4,10 +4,10 @@ import {
   GraphQLString }  from 'graphql'
 
 import * as logger        from '../../utility/logger'
-import * as getProjection from '../../utility/projections'
+import getProjection from '../../utility/projections'
 import {speakerType} from '../../types'
 
-export = {
+export const speakers = {
   type: new GraphQLList(speakerType), //how is this an array?
   description: 'The speakers query will return you a list of all speakers blaa blaa blaa.',
   //deprecationReason: 'reason here', // this is valid on an operation as well

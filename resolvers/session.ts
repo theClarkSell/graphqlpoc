@@ -1,6 +1,6 @@
-import * as getProjection from '../utility/projections'
+import getProjection from '../utility/projections'
 
-const session = ({_id, sessions}, args, {mongo: {Sessions}}, fieldASTs) => {
+export default ({_id, sessions}, args, {mongo: {Sessions}}, fieldASTs) => {
   const projection = getProjection(fieldASTs)
   return new Promise((resolve, reject) => {
     Sessions
@@ -10,8 +10,4 @@ const session = ({_id, sessions}, args, {mongo: {Sessions}}, fieldASTs) => {
       .then(r => resolve(r))
       .catch(err =>  reject(err))
   })
-}
-
-export = {
-  session
 }

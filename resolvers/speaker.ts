@@ -1,6 +1,6 @@
-import * as getProjection from '../utility/projections'
+import getProjection from '../utility/projections'
 
-const speaker = ({speakers}, args, {mongo: {Speakers}}, fieldASTs) => {
+export default ({speakers}, args, {mongo: {Speakers}}, fieldASTs) => {
   const projection = getProjection(fieldASTs)
   return new Promise((resolve, reject) => {
     Speakers
@@ -13,9 +13,4 @@ const speaker = ({speakers}, args, {mongo: {Speakers}}, fieldASTs) => {
 }
 
 //just a contrived example since there is no real field mapping
-const firstName = (root) => root.firstName
-
-export = {
-  firstName,
-  speaker
-}
+export const firstName = (root) => root.firstName

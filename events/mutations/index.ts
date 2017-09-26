@@ -1,4 +1,2 @@
 
-module.exports = {
-  createEvent: require('./createEvent')
-}
+export * from './createEvent'

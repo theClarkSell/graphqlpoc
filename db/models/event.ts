@@ -1,4 +1,5 @@
 import * as mongoose from 'mongoose'
+
 const Schema = mongoose.Schema
 
 const eventSchema = new Schema({
@@ -32,4 +33,4 @@ const eventSchema = new Schema({
   }]
 })
 
-module.exports = mongoose.model('Event', eventSchema)
+export const event = mongoose.model('Event', eventSchema)
