@@ -20,7 +20,7 @@ export default new GraphQLObjectType({
     id: {
       type: new GraphQLNonNull(GraphQLID),
       description: 'System generated unique id for this session.',
-      resolve: (...args) => id(...args)
+      resolve: (...args) => (<any>id)(...args)
     },
     name: {
       type: new GraphQLNonNull(GraphQLString),
@@ -37,12 +37,12 @@ export default new GraphQLObjectType({
     speakers: {
       type: new GraphQLList(speakerType), //TODO:: runtime require due to circular reference
       description: 'Speakers for this event.',
-      resolve: (...args) => speaker(...args)
+      resolve: (...args) => (<any>speaker)(...args)
     },
     sessions: {
       type: new GraphQLList(sessionType), //TODO:: runtime require due to circular reference
       description: 'Sessions for this event.',
-      resolve: (...args) => session(...args)
+      resolve: (...args) => (<any>session)(...args)
     }
   })
 })

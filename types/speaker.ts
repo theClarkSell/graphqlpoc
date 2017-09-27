@@ -18,12 +18,12 @@ export default new GraphQLObjectType({
     id: {
       type: new GraphQLNonNull(GraphQLID),
       description: 'System generated unique id for this speaker.',
-      resolve: (...args) => id(...args)
+      resolve: (...args) => (<any>id)(...args)
     },
     firstName: {
       type: new GraphQLNonNull(GraphQLString),
       description: 'Speakers First Name',
-      resolve: (...args) => firstName(...args)
+      resolve: (...args) => (<any>firstName)(...args)
     },
     lastName: {
       type: new GraphQLNonNull(GraphQLString),
@@ -36,7 +36,7 @@ export default new GraphQLObjectType({
     sessions: {
       type: new GraphQLList(sessionType), // TODO:: runtime require here as  it's a circular reference
       description: 'sessions....',
-      resolve: (...args) => session(...args)
+      resolve: (...args) => (<any>session)(...args)
     },
     company: {
       deprecationReason: 'We really do not care where you work we care what you do',
