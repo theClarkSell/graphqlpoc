@@ -1,11 +1,11 @@
 
-const logger = require('./utility/logger')
-const _      = require('lodash')
+import * as logger from './utility/logger'
+import * as _ from 'lodash'
 
-const {
+import {
   GraphQLSchema,
   GraphQLObjectType,
-} = require('graphql')
+}  from 'graphql'
 
 const queries = _.merge(
   require('./speakers/queries'),
