@@ -21,11 +21,14 @@ server.register({
   register: graphqlHapi,
   options: {
     path: paths.graphql,
-    graphqlOptions: {
-      pretty: true,
-      schema: require('./graphSchema'),
-      context: {
-        mongo                           //could pass things in here like user context down to each resolver.
+    graphqlOptions: (request) => {
+      return {
+        pretty: true,
+        schema: require('./graphSchema'),
+        context: {
+          request,
+          mongo                           //could pass things in here like user context down to each resolver.
+        }
       }
     }
   }
