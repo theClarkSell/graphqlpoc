@@ -7,8 +7,9 @@
     "node": ">=8"
   },
   "scripts": {
-    "start": "nodemon ./index.js",
-    "debug": "nodemon --inspect --debug-brk=9229 ./index.js",
+    "prestart": "npm run build",
+    "start": "nodemon ./lib/index.js",
+    "build": "babel ./src -d ./lib",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "clark sell",
@@ -25,6 +26,18 @@
     "winston": "^2.3.1"
   },
   "devDependencies": {
-    "nodemon": "^1.12.1"
+    "nodemon": "^1.12.1",
+    "babel-cli": "^6.26.0",
+    "babel-eslint": "^8.0.1",
+    "babel-preset-env": "^1.6.0",
+    "eslint": "^4.8.0",
+    "eslint-config-airbnb": "^16.0.0",
+    "eslint-config-airbnb-base": "^12.0.2",
+    "eslint-config-prettier": "^2.6.0",
+    "eslint-plugin-import": "^2.7.0",
+    "eslint-plugin-jsx-a11y": "^6.0.2",
+    "eslint-plugin-prettier": "^2.3.1",
+    "eslint-plugin-react": "^7.4.0",
+    "prettier": "^1.7.4"
   }
 }
