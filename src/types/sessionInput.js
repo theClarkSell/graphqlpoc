@@ -6,7 +6,7 @@ const {
 } = require("graphql");
 
 module.exports = new GraphQLInputObjectType({
-  name: "SessionInputType",
+  name: "SessionInput",
   description:
     "A session is defined as a presentaiton that a speaker will give.",
   fields: () => ({

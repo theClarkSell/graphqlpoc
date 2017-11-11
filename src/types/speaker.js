@@ -11,7 +11,7 @@ const { firstName } = require("../resolvers/speaker");
 const { id } = require("../resolvers/id");
 
 module.exports = new GraphQLObjectType({
-  name: "SpeakerType",
+  name: "Speaker",
   description:
     "A speaker is defined as someone who actually speaks but not to be confused with anyone who can speak.",
   fields: () => ({
