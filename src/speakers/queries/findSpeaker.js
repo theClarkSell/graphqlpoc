@@ -20,7 +20,7 @@ module.exports = {
     new Promise((resolve, reject) => {
       logger.debug(`in speakers query`);
       const projection = getProjection(fieldASTs);
-      Speakers.find({})
+      Speakers.find({ _id: { $in: args.userID } })
         .select(projection)
         .exec()
         .then(data => resolve(data))
