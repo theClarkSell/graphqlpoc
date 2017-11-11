@@ -1,4 +1,4 @@
-const getProjection = require('../utility/projections');
+const getProjection = require("../utility/projections");
 
 const speaker = ({ speakers }, args, { mongo: { Speakers } }, fieldASTs) => {
   const projection = getProjection(fieldASTs);
@@ -16,5 +16,5 @@ const firstName = root => root.firstName;
 
 module.exports = {
   firstName,
-  speaker,
+  speaker
 };

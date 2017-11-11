@@ -1,4 +1,4 @@
-const getProjection = require('../utility/projections');
+const getProjection = require("../utility/projections");
 
 const session = ({ sessions }, args, { mongo: { Sessions } }, fieldASTs) => {
   const projection = getProjection(fieldASTs);
@@ -12,5 +12,5 @@ const session = ({ sessions }, args, { mongo: { Sessions } }, fieldASTs) => {
 };
 
 module.exports = {
-  session,
+  session
 };

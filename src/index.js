@@ -1,20 +1,23 @@
-require('dotenv').load();
+import {} from "dotenv/config";
 
-const Hapi = require('hapi');
-const { graphqlHapi, graphiqlHapi } = require('apollo-server-hapi');
-const logger = require('./utility/logger');
-const mongo = require('./db/mongo');
+import Hapi from "hapi";
+import { graphqlHapi, graphiqlHapi } from "apollo-server-hapi";
+import { hapi as voyager } from "graphql-voyager/middleware";
+
+import logger from "./utility/logger";
+import mongo from "./db/mongo";
 
 const server = new Hapi.Server();
 const port = Number(process.env.PORT || 8000);
 
 server.connection({
-  port,
+  port
 });
 
 const paths = {
   graphql: `/graphql`,
   graphiql: `/graphiql`,
+  voyager: `/voyager`
 };
 
 server.register({
@@ -23,13 +26,13 @@ server.register({
     path: paths.graphql,
     graphqlOptions: request => ({
       pretty: true,
-      schema: require('./graphSchema'),
+      schema: require("./graphSchema"),
       context: {
         request,
-        mongo, // could pass things in here like user context down to each resolver.
-      },
-    }),
-  },
+        mongo // could pass things in here like user context down to each resolver.
+      }
+    })
+  }
 });
 
 server.register({
@@ -37,12 +40,20 @@ server.register({
   options: {
     path: paths.graphiql,
     graphiqlOptions: {
-      endpointURL: `${paths.graphql}`,
-    },
-  },
+      endpointURL: paths.graphql
+    }
+  }
 });
 
-server.route(require('./routes')());
+server.register({
+  register: voyager,
+  options: {
+    path: paths.voyager,
+    endpointUrl: paths.graphql
+  }
+});
+
+server.route(require("./routes")());
 
 exports.listen = () => {
   server.start(err => {

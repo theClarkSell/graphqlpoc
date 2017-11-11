@@ -1,4 +1,4 @@
-const mongoose = require('mongoose');
+const mongoose = require("mongoose");
 
 const { Schema } = mongoose;
 
@@ -6,21 +6,21 @@ const sessionSchema = new Schema({
   title: {
     type: String,
     unique: false,
-    required: true,
+    required: true
   },
 
   description: {
     type: String,
     unique: false,
-    required: true,
+    required: true
   },
 
   speakers: [
     {
       type: Schema.Types.ObjectId,
-      ref: 'Speaker',
-    },
-  ],
+      ref: "Speaker"
+    }
+  ]
 });
 
-module.exports = mongoose.model('Session', sessionSchema);
+module.exports = mongoose.model("Session", sessionSchema);

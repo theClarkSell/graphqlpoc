@@ -1,5 +1,5 @@
-const createSpeaker = require('./createSpeaker');
+const createSpeaker = require("./createSpeaker");
 
 module.exports = {
-  createSpeaker,
+  createSpeaker
 };

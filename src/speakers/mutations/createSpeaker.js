@@ -1,18 +1,18 @@
-const logger = require('../../utility/logger');
+const logger = require("../../utility/logger");
 
-const { GraphQLNonNull, GraphQLString } = require('graphql');
+const { GraphQLNonNull, GraphQLString } = require("graphql");
 
-const { speakerInputType } = require('../../types');
+const { speakerInputType } = require("../../types");
 
 module.exports = {
   type: GraphQLString,
-  description: 'Create a new speaker',
+  description: "Create a new speaker",
   // deprecationReason: 'reason here', // this is valid on an operation as well
   args: {
     newSpeaker: {
-      name: 'newSpeaker',
-      type: new GraphQLNonNull(speakerInputType),
-    },
+      name: "newSpeaker",
+      type: new GraphQLNonNull(speakerInputType)
+    }
   },
   resolve: (root, { newSpeaker }, { mongo: { Speakers } }) => {
     logger.data(newSpeaker);
@@ -23,5 +23,5 @@ module.exports = {
         .then(r => resolve(r.id))
         .catch(err => reject(err));
     });
-  },
+  }
 };

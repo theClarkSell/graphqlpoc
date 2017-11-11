@@ -1,4 +1,4 @@
-const Winston = require('winston');
+const Winston = require("winston");
 
 const logger = new Winston.Logger({
   levels: {
@@ -11,28 +11,28 @@ const logger = new Winston.Logger({
     data: 6,
     help: 7,
     warn: 8,
-    error: 9,
+    error: 9
   },
   colors: {
-    trace: 'magenta',
-    input: 'grey',
-    verbose: 'cyan',
-    prompt: 'grey',
-    debug: 'blue',
-    info: 'green',
-    data: 'grey',
-    help: 'cyan',
-    warn: 'yellow',
-    error: 'red',
-  },
+    trace: "magenta",
+    input: "grey",
+    verbose: "cyan",
+    prompt: "grey",
+    debug: "blue",
+    info: "green",
+    data: "grey",
+    help: "cyan",
+    warn: "yellow",
+    error: "red"
+  }
 });
 
 logger.add(Winston.transports.Console, {
-  level: 'error',
+  level: "error",
   prettyPrint: true,
   colorize: true,
   silent: false,
-  timestamp: true,
+  timestamp: true
 });
 
 module.exports = logger;

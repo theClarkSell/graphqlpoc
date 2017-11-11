@@ -7,28 +7,40 @@
     "node": ">=8"
   },
   "scripts": {
-    "prestart": "npm run build",
-    "start": "nodemon ./lib/index.js",
-    "build": "babel ./src -d ./lib",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "prestart": "",
+    "start": "nodemon ./src/index.js --exec babel-node",
+    "build": "babel ./src -d ./build",
+    "test": "echo \"Error: no test specified\""
   },
-  "author": "clark sell",
+  "contributors": [
+    {
+      "name": "Clark Sell",
+      "email": "hello@unspecified.io",
+      "url": "http://unspecified.io/"
+    }
+  ],
   "license": "ISC",
   "dependencies": {
     "apollo-server-hapi": "^1.1.2",
     "dotenv": "^4.0.0",
     "graphql": "^0.11.3",
     "graphql-tools": "^1.2.2",
+    "graphql-voyager": "^1.0.0-rc.9",
     "hapi": "^16.6.0",
     "lodash": "^4.17.4",
     "mongodb": "^2.2.31",
     "mongoose": "^4.11.11",
     "winston": "^2.3.1"
   },
+  "optionalDependencies": {
+    "react": "^16.0.0",
+    "react-dom": "^16.0.0"
+  },
   "devDependencies": {
-    "nodemon": "^1.12.1",
     "babel-cli": "^6.26.0",
+    "babel-core": "^6.26.0",
     "babel-eslint": "^8.0.1",
+    "babel-polyfill": "^6.26.0",
     "babel-preset-env": "^1.6.0",
     "eslint": "^4.8.0",
     "eslint-config-airbnb": "^16.0.0",
@@ -38,6 +50,7 @@
     "eslint-plugin-jsx-a11y": "^6.0.2",
     "eslint-plugin-prettier": "^2.3.1",
     "eslint-plugin-react": "^7.4.0",
+    "nodemon": "^1.12.1",
     "prettier": "^1.7.4"
   }
 }
