@@ -1,18 +1,16 @@
 import {} from "dotenv/config";
 
-import Hapi from "hapi";
-import { graphqlHapi, graphiqlHapi } from "apollo-server-hapi";
-import { hapi as voyager } from "graphql-voyager/middleware";
+import express from "express";
+import bodyParser from "body-parser";
+import { graphqlExpress, graphiqlExpress } from "apollo-server-express";
+import { express as voyager } from "graphql-voyager/middleware";
 
-import logger from "./utility/logger";
+import { logger } from "./utility/logger";
 import mongo from "./db/mongo";
+import routes from "./routes";
 
-const server = new Hapi.Server();
-const port = Number(process.env.PORT || 8000);
-
-server.connection({
-  port
-});
+const app = express();
+routes(app);
 
 const paths = {
   graphql: `/graphql`,
@@ -20,56 +18,36 @@ const paths = {
   voyager: `/voyager`
 };
 
-server.register({
-  register: graphqlHapi,
-  options: {
-    path: paths.graphql,
-    graphqlOptions: request => ({
-      pretty: true,
-      schema: require("./graphSchema"),
-      context: {
-        request,
-        mongo // could pass things in here like user context down to each resolver.
-      }
-    })
-  }
-});
-
-server.register({
-  register: graphiqlHapi,
-  options: {
-    path: paths.graphiql,
-    graphiqlOptions: {
-      endpointURL: paths.graphql
+app.use(
+  paths.graphql,
+  bodyParser.json(),
+  graphqlExpress(request => ({
+    //tracing: true,
+    pretty: true,
+    schema: require("./graphSchema"),
+    context: {
+      request,
+      mongo // could pass things in here like user context down to each resolver.
     }
-  }
-});
+  }))
+);
 
-server.register({
-  register: voyager,
-  options: {
-    path: paths.voyager,
-    endpointUrl: paths.graphql
-  }
-});
+app.get(paths.graphiql, graphiqlExpress({ endpointURL: paths.graphql }));
 
-server.route(require("./routes")());
-
-exports.listen = () => {
-  server.start(err => {
-    if (err) {
-      logger.debug(`Http server start error: ${err}`);
-      throw err;
+app.use(
+  "/voyager",
+  voyager({
+    endpointUrl: paths.graphql,
+    displayOptions: {
+      sortByAlphabet: true
     }
+  })
+);
 
-    logger.debug(`Http server listening on http://localhost:${port}`);
-  });
-};
-
-exports.close = next => {
-  server.stop(next);
-};
-
-if (require.main === module) {
-  exports.listen();
+try {
+  app.listen(8000);
+} catch (err) {
+  logger.debug(`Error while starting server: ${err.message}`);
 }
+
+logger.debug(`Server running at:`);

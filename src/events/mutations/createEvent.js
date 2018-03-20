@@ -1,13 +1,12 @@
-const logger = require("../../utility/logger");
+import { logger } from "../../utility/logger";
 
-const { GraphQLNonNull, GraphQLString } = require("graphql");
-
-const { eventInputType } = require("../../types");
+import { GraphQLNonNull, GraphQLString } from "graphql";
+import { eventInputType } from "../../types";
 
 module.exports = {
   type: GraphQLString,
   description: "Create a new session",
-  // deprecationReason: 'reason here', // this is valid on an operation as well
+  deprecationReason: "she gone leave me", // this is valid on an operation as well
   args: {
     newEvent: {
       name: "newEvent",

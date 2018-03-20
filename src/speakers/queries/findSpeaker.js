@@ -1,8 +1,8 @@
-const { GraphQLList, GraphQLString } = require("graphql");
+import { GraphQLList, GraphQLString } from "graphql";
 
-const logger = require("../../utility/logger");
-const getProjection = require("../../utility/projections");
-const { speakerType } = require("../../types");
+import { logger } from "../../utility/logger";
+import getProjection from "../../utility/projections";
+import { speakerType } from "../../types";
 
 // todo.. placeholder to make sure we can reuse a type... resolve is wrong.
 module.exports = {

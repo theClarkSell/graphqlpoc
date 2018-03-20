@@ -1,4 +1,4 @@
-const getProjection = require("../utility/projections");
+import getProjection from "../utility/projections";
 
 const speaker = ({ speakers }, args, { mongo: { Speakers } }, fieldASTs) => {
   const projection = getProjection(fieldASTs);

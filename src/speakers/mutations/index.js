@@ -1,4 +1,4 @@
-const createSpeaker = require("./createSpeaker");
+import createSpeaker from "./createSpeaker";
 
 module.exports = {
   createSpeaker

@@ -1,6 +1,5 @@
-const _ = require("lodash");
-
-const { GraphQLSchema, GraphQLObjectType } = require("graphql");
+import _ from "lodash";
+import { GraphQLSchema, GraphQLObjectType } from "graphql";
 
 const queries = _.merge(
   require("./speakers/queries"),

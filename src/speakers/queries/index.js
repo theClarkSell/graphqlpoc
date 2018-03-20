@@ -1,5 +1,5 @@
-const speakers = require("./speakers");
-const findSpeaker = require("./findSpeaker");
+import speakers from "./speakers";
+import findSpeaker from "./findSpeaker";
 
 module.exports = {
   speakers,

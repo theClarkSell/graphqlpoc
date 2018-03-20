@@ -1,8 +1,8 @@
-const { GraphQLList } = require("graphql");
+import { GraphQLList } from "graphql";
 
-const logger = require("../../utility/logger");
-const getProjection = require("../../utility/projections");
-const { speakerType } = require("../../types");
+import { logger } from "../../utility/logger";
+import getProjection from "../../utility/projections";
+import { speakerType } from "../../types";
 
 module.exports = {
   type: new GraphQLList(speakerType), // how is this an array?

@@ -1,8 +1,8 @@
-const logger = require("../../utility/logger");
+import { logger } from "../../utility/logger";
 
-const { GraphQLNonNull, GraphQLString } = require("graphql");
+import { GraphQLNonNull, GraphQLString } from "graphql";
 
-const { speakerInputType } = require("../../types");
+import { speakerInputType } from "../../types";
 
 module.exports = {
   type: GraphQLString,

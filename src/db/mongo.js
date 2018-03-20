@@ -1,7 +1,11 @@
-const mongoose = require("mongoose");
-const logger = require("../utility/logger");
+import mongoose from "mongoose";
+import { logger } from "../utility/logger";
 
-const { event, speaker, session } = require("./models");
+import {
+  event as Events,
+  speaker as Speakers,
+  session as Sessions
+} from "./models";
 
 const user = process.env.MONGO_USERNAME;
 const password = process.env.MONGO_PASSWORD;
@@ -10,9 +14,7 @@ const database = process.env.MONGO_DB;
 const mongodbUri = `mongodb://${user}:${password}@${database}`;
 
 mongoose.Promise = global.Promise;
-mongoose.connect(mongodbUri, {
-  useMongoClient: true
-});
+mongoose.connect(mongodbUri, {});
 
 const db = mongoose.connection;
 db.on("error", () => logger.error(`mongo connection couldn't be established`));
@@ -23,7 +25,7 @@ db.on("close", () => {
 });
 
 module.exports = {
-  Events: event,
-  Sessions: session,
-  Speakers: speaker
+  Events,
+  Sessions,
+  Speakers
 };

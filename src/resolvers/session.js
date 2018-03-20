@@ -1,4 +1,4 @@
-const getProjection = require("../utility/projections");
+import getProjection from "../utility/projections";
 
 const session = ({ sessions }, args, { mongo: { Sessions } }, fieldASTs) => {
   const projection = getProjection(fieldASTs);
